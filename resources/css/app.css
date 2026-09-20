@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-primary: #086972;
+    --color-secondary: #17b978;
+    --color-action: #ff4500;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-enter {
+        animation: hero-enter 550ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-enter-2 {
+        animation-delay: 110ms;
+    }
+
+    .hero-enter-3 {
+        animation-delay: 200ms;
+    }
+}
+
+@keyframes hero-enter {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.trip-gallery-bullet {
+    @apply h-2 w-2 cursor-pointer rounded-full bg-slate-300 transition;
+}
+
+.trip-gallery-bullet-active {
+    @apply bg-primary;
+}
+
+[x-cloak] {
+    display: none !important;
+}

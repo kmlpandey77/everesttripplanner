@@ -1,0 +1,30 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Menu;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+/**
+ * @extends Factory<Menu>
+ */
+class MenuFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        $name = $this->faker->unique()->words(2, true);
+
+        return [
+            'name' => $name,
+            'slug' => Str::slug($name),
+            'cta_label' => null,
+            'cta_url' => null,
+        ];
+    }
+}
