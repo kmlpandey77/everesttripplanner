@@ -19,8 +19,8 @@ class UpdateTripStats extends Command
         Trip::query()->select('id')->chunkById(200, function ($trips): void {
             foreach ($trips as $trip) {
                 $trip->update([
-                    'currently_viewing' => random_int(20, 80),
-                    'last_booked_at' => now()->subMinutes(random_int(5, 180)),
+                    //                    'currently_viewing' => random_int(20, 80),
+                    'last_booked_at' => now()->addDays(random_int(1, 10)),
                 ]);
             }
         });

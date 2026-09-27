@@ -367,7 +367,7 @@
                 @if ($reviews->isNotEmpty())
                     <section id="reviews" class="mt-12 scroll-mt-20">
                         <h2 class="text-2xl font-bold text-slate-900">Customer Reviews</h2>
-                        <div class="mt-6 grid gap-6 sm:grid-cols-2">
+                        <div class="mt-6 grid gap-2">
                             @foreach ($reviews as $review)
                                 @php $avatar = \Awcodes\Curator\Models\Media::find($review->avatar_id); @endphp
                                 <figure class="rounded-lg border border-slate-100 bg-white p-6">
