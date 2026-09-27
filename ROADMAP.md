@@ -130,9 +130,9 @@ owns its route"). Legend: ✅ done · 🟡 partial · ⬜ not started.
   whenever its path changes (301, chain-flattened so a second slug change
   never produces a double-hop, and reclaimable if the slug is reverted).
 - ⬜ No dedicated `redirects` table/resource — reuses the existing `routes`
-  table/`RouteResource` (filterable by `type = redirect`) instead; revisit
-  only if a standalone resource is actually needed (e.g. manual vanity
-  redirects unrelated to any content slug).
+  table/`RouteResource` (filterable by `type = redirect`) instead.
+- ✅ Manual old-URL redirects — "Add redirect" action on the Routes list
+  creates a `type = redirect` row (accepts a path or full URL).
 
 ## Permissions
 
