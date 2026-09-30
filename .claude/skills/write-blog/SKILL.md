@@ -9,6 +9,8 @@ Every post exists to rank for a search people make before booking, and then send
 
 ## 1. Pin down the post
 
+The content plan is `luxury-everest-base-camp-trek-blog-plan.md` (repo root). If the user says "next post", names a plan number ("write #8") or gives no topic, take the topic from there: the named number, or the first ⬜ item in §2 "Next up". Use the plan's title, primary keyword and slug as the starting point. Never make the bare phrase "luxury everest base camp trek" the primary keyword, because the trip page owns it. If a topic is 🟡 or listed under "Already covered elsewhere", stop and tell the user where it's covered.
+
 From the user's topic, decide:
 - **Primary keyword**: the exact phrase a traveller would search, e.g. "luxury lodges everest base camp".
 - **Search intent**: comparing, costing, can-I-do-it, planning or inspiration. The intent decides the structure. A cost post needs a breakdown table. A "can I do it" post needs reassurance plus concrete preparation.
@@ -115,6 +117,8 @@ php artisan tinker --execute 'preg_match_all("/href=\"(\/[^\"]*)\"/", App\Models
 ```
 
 Fix any link that doesn't return 200 before reporting.
+
+Then update the plan: mark the topic ✅ in the §0 status table with its slug and date, update the scorecard count, remove it from §2 "Next up", and add it to "Just published". If the post wasn't in the plan, add it as a new row.
 
 ## 6. Report
 
