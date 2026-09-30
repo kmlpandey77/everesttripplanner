@@ -27,6 +27,7 @@
 - **No luxury queries show up yet.** The luxury trip page had 8 impressions at position 42, under its old `/trips/` URL. The new luxury posts are too new to appear.
 - **What to do:** keep publishing this plan, because it targets the buying searches the site doesn't rank for yet. Alongside it, give the three place pages above a contextual link to the luxury trip and to `/blogs/everest-base-camp-in-comfort`. They're the only pages Google is testing right now, so they're the fastest way to send it towards the money page. Don't write more Sagarmatha or Khumbu posts: those pages already cover the topic, they just need to rank higher.
 - **Old URLs:** most old `/trips/*` and `/page/*` URLs already 301 on live. Three still return 404 and need a redirect: `/trips/everest-base-camp-trek` → `/everest-base-camp-trek` (30 impressions), `/trips/gokyo-valley-trek/details-itinerary` → `/gokyo-valley-trek/itinerary`, and `/page/terms-and-conditions` → `/terms-and-conditions`.
+- **Done (2026-09-30):** the place-page links and the three redirects ship in `SearchConsoleFixesSeeder`.
 - Re-check in 6-8 weeks. The first posts in this plan should start showing impressions for their keywords by then.
 
 ### Already covered elsewhere — don't write these as blog posts
