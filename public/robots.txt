@@ -40,4 +40,4 @@ User-agent: Meta-ExternalAgent
 Allow: /
 
 LLM-Content: /llms.txt
-Sitemap: /sitemap.xml
+Sitemap: https://everesttripplanner.com/sitemap.xml

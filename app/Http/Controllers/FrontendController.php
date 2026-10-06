@@ -25,7 +25,13 @@ class FrontendController extends Controller
         abort_unless($route, 404);
 
         if ($route->redirect_to) {
-            return redirect($route->redirect_to, $route->redirect_code ?? 302);
+            $target = preg_replace('/\s+/', '', $route->redirect_to);
+
+            if (! str_contains($target, '://')) {
+                $target = '/'.ltrim($target, '/');
+            }
+
+            return redirect($target, $route->redirect_code ?? 302);
         }
 
         return match ($route->type) {

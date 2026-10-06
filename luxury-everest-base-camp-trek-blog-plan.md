@@ -17,7 +17,7 @@
 
 ✅ = live · 🟡 = already covered elsewhere on the site (don't write, or scope carefully) · ⬜ = open
 
-**Scorecard:** 6 live, 30 open.
+**Scorecard:** 7 live, 29 open.
 
 ### Search Console snapshot (last 3 months to 2026-09-30)
 
@@ -58,7 +58,7 @@ Posts below that touch these places (#14, #20, #34) take a **comfort/logistics a
 | 6 | Everest Base Camp in Comfort: First-Timer's Guide | ✅ | `/blogs/everest-base-camp-in-comfort` (2026-09-30). Pillar: link new posts back to it |
 | 7 | Luxury EBC Trek Cost | ✅ | `/blogs/luxury-everest-base-camp-trek-cost` (2026-09-27) |
 | 8 | What's Included in a Luxury EBC Trek | ✅ | `/blogs/luxury-everest-trek-whats-included` (2026-09-30) |
-| 9 | Private vs Small-Group Luxury EBC Trek | ⬜ | |
+| 9 | Private vs Small-Group Luxury EBC Trek | ✅ | `/blogs/private-everest-base-camp-trek` (2026-10-06) |
 | 10 | How to Choose a Luxury Everest Trek Operator | ⬜ | |
 | 11 | Tipping on the Everest Trek | ⬜ | Cost post gives a tip range; this is the how/when/etiquette post |
 | 12 | Travel Insurance for a Luxury Everest Trek | ⬜ | |
@@ -157,7 +157,7 @@ Flows: `Comfort guide → Itinerary → Difficulty → Trip page` · `Best Time 
 | # | Blog Title | Primary Keyword | Intent | Slug |
 |---|---|---|---|---|
 | 8 | What's Included in a Luxury Everest Base Camp Trek (and What Isn't) ✅ | luxury everest trek inclusions | Commercial | `luxury-everest-trek-whats-included` |
-| 9 | Private or Small Group? Choosing Your Luxury Everest Trek | private everest base camp trek | Commercial | `private-everest-base-camp-trek` |
+| 9 | Private or Small Group? Choosing Your Luxury Everest Trek ✅ | private everest base camp trek | Commercial | `private-everest-base-camp-trek` |
 | 10 | How to Choose a Luxury Everest Trek Operator: 8 Questions to Ask | best luxury everest trek company | Commercial Investigation | `choose-luxury-everest-trek-operator` |
 | 11 | Tipping on the Everest Base Camp Trek: A Simple, Kind Guide | tipping everest base camp trek | Planning | `tipping-everest-base-camp-trek` |
 | 12 | Travel Insurance for Everest Base Camp: What a Luxury Trip Needs | everest base camp trek insurance | Planning | `everest-base-camp-trek-insurance` |
@@ -286,13 +286,13 @@ Luxury Trekking Nepal (#33)
 Ordered by commercial value and season, not by number. **Always take the first ⬜ item.**
 
 **Next up:**
-1. Private vs Small Group (#9)
-2. Itinerary Explained (#1)
-3. Helicopter from Gorak Shep (#19)
+1. Itinerary Explained (#1)
+2. Helicopter from Gorak Shep (#19)
+3. How Hard Is It? (#3)
 
 **Then:** the rest of each month's table in order, keeping #26 (Training) and #27 (Over 60) for early February, when spring trekkers start preparing.
 
-**Just published:** Everest Base Camp in Comfort (#6), `/blogs/everest-base-camp-in-comfort` (2026-09-30). Before that: What's Included (#8), `/blogs/luxury-everest-trek-whats-included` (2026-09-30). Before that: Best Time (#2), `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30). Before that: Luxury vs Standard (#4), Cost (#7), Best Luxury Lodges (#13), all 2026-09-27.
+**Just published:** Private or Small Group (#9), `/blogs/private-everest-base-camp-trek` (2026-10-06). Before that: Everest Base Camp in Comfort (#6), `/blogs/everest-base-camp-in-comfort` (2026-09-30). Before that: What's Included (#8), `/blogs/luxury-everest-trek-whats-included` (2026-09-30). Before that: Best Time (#2), `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30). Before that: Luxury vs Standard (#4), Cost (#7), Best Luxury Lodges (#13), all 2026-09-27.
 
 ---
 
