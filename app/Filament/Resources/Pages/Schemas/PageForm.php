@@ -33,15 +33,15 @@ class PageForm
                         TextInput::make('title')
                             ->required()
                             ->live(onBlur: true)
-                            ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state ?? '')))
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state ?? '')))
                             ->columnSpan(1),
                         TextInput::make('slug')
                             ->required()
                             ->unique(ignoreRecord: true)
-                            ->rule(fn() => fn(string $attribute, $value, $fail) => RouteGenerator::isReserved($value)
+                            ->rule(fn () => fn (string $attribute, $value, $fail) => RouteGenerator::isReserved($value)
                                 ? $fail('This slug is reserved and cannot be used.')
                                 : null)
-                            ->helperText(fn(Get $get): ?string => $get('is_home')
+                            ->helperText(fn (Get $get): ?string => $get('is_home')
                                 ? 'Ignored while this page is set as the homepage — it will be served at / instead.'
                                 : null)
                             ->columnSpan(1),
@@ -62,7 +62,7 @@ class PageForm
                             ->live()
                             ->columnSpan(1),
                         DateTimePicker::make('published_at')
-                            ->visible(fn(Get $get): bool => $get('status') === PageStatus::Scheduled->value)
+                            ->visible(fn (Get $get): bool => $get('status') === PageStatus::Scheduled->value)
                             ->columnSpan(1),
                         Toggle::make('is_home')
                             ->label('Set as homepage')
@@ -143,7 +143,7 @@ class PageForm
                                             ->default(6),
                                         Select::make('category_slug')
                                             ->label('Limit to category')
-                                            ->options(fn() => Category::query()->orderBy('name')->pluck('name', 'slug'))
+                                            ->options(fn () => Category::query()->orderBy('name')->pluck('name', 'slug'))
                                             ->searchable()
                                             ->helperText('Leave blank to show trips from any category.'),
                                         Select::make('columns')
@@ -161,7 +161,7 @@ class PageForm
                                     ->label('Blog index')
                                     ->schema([
                                         TextInput::make('count')
-                                            ->label('Number of posts')
+                                            ->label('Posts per page')
                                             ->numeric()
                                             ->default(12),
                                     ]),

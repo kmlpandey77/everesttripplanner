@@ -1,10 +1,10 @@
 @php
     $posts = \App\Models\Blog::query()
         ->with(['route', 'image'])
+        ->where('status', \App\Enums\PageStatus::Published)
+        ->where(fn ($query) => $query->whereNull('published_at')->orWhere('published_at', '<=', now()))
         ->latest('published_at')
-        ->get()
-        ->filter->isPublished()
-        ->take((int) ($data['count'] ?? 12));
+        ->paginate((int) ($data['count'] ?? 12));
 @endphp
 @if ($posts->isNotEmpty())
     <div class="mx-auto grid max-w-6xl gap-6 px-6 py-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -26,4 +26,9 @@
             </a>
         @endforeach
     </div>
+    @if ($posts->hasPages())
+        <div class="mx-auto max-w-6xl px-6 py-6">
+            {{ $posts->links() }}
+        </div>
+    @endif
 @endif
