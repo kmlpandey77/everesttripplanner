@@ -20,7 +20,7 @@ class UpdateTripStats extends Command
             foreach ($trips as $trip) {
                 $trip->update([
                     //                    'currently_viewing' => random_int(20, 80),
-                    'last_booked_at' => now()->addDays(random_int(1, 10)),
+                    'last_booked_at' => now()->subDays(random_int(1, 10)),
                 ]);
             }
         });
