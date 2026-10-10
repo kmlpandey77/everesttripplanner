@@ -12,7 +12,6 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
@@ -45,7 +44,9 @@ class BlogForm
                             ->live()
                             ->columnSpan(1),
                         DateTimePicker::make('published_at')
-                            ->visible(fn (Get $get): bool => $get('status') === PageStatus::Scheduled->value)
+                            ->label('Publish date')
+                            ->default(now())
+                            ->helperText('Shown on the post and used as datePublished. A future date with Published status hides the post until then.')
                             ->columnSpan(1),
                         CuratorPicker::make('image_id')
                             ->label('Cover image')

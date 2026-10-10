@@ -286,7 +286,7 @@
                 @if ($trip->includes)
                     <section id="includes" class="mt-12 scroll-mt-20">
                         <h2 class="text-2xl font-bold text-slate-900">Includes</h2>
-                        <ul class="mt-4 grid gap-2 sm:grid-cols-2">
+                        <ul class="mt-4 space-y-2">
                             @foreach ($trip->includes as $item)
                                 <li class="flex items-start gap-2 text-slate-600">
                                     <span class="mt-0.5 shrink-0 text-secondary">@svg('heroicon-o-check', 'h-4 w-4')</span>
@@ -301,10 +301,10 @@
                 @if ($trip->excludes)
                     <section id="excludes" class="mt-12 scroll-mt-20">
                         <h2 class="text-2xl font-bold text-slate-900">Excludes</h2>
-                        <ul class="mt-4 grid gap-2 sm:grid-cols-2">
+                        <ul class="mt-4 space-y-2">
                             @foreach ($trip->excludes as $item)
                                 <li class="flex items-start gap-2 text-slate-600">
-                                    <span class="mt-0.5 shrink-0 text-slate-400">@svg('heroicon-o-x-mark', 'h-4 w-4')</span>
+                                    <span class="mt-0.5 shrink-0 text-red-500">@svg('heroicon-o-x-mark', 'h-4 w-4')</span>
                                     {{ $item }}
                                 </li>
                             @endforeach
@@ -323,7 +323,7 @@
                             </div>
                         @endif
 
-                        <div class="mt-6 grid gap-8 sm:grid-cols-2">
+                        <div class="mt-6 space-y-8">
                             @if ($trip->checklist)
                                 <div>
                                     <h3 class="font-semibold text-slate-900">Packing Checklist</h3>

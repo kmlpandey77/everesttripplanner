@@ -1,4 +1,4 @@
-# Luxury Everest Base Camp Trek — 6-Month Blog & SEO Content Plan
+``# Luxury Everest Base Camp Trek — 6-Month Blog & SEO Content Plan
 
 **Brand:** Everest Trip Planner
 **Money page:** [Luxury Everest Base Camp Trek](https://everesttripplanner.com/luxury-everest-base-camp-trek) (`trip:luxury-everest-base-camp-trek`)
@@ -17,7 +17,7 @@
 
 ✅ = live · 🟡 = already covered elsewhere on the site (don't write, or scope carefully) · ⬜ = open
 
-**Scorecard:** 7 live, 29 open.
+**Scorecard:** 9 live, 27 open.
 
 ### Search Console snapshot (last 3 months to 2026-09-30)
 
@@ -50,7 +50,7 @@ Posts below that touch these places (#14, #20, #34) take a **comfort/logistics a
 
 | # | Title | Status | Note |
 |---|---|---|---|
-| 1 | Luxury EBC Trek Itinerary Explained | ⬜ | Explain *why* each day is paced as it is; don't just repeat the trip page's day list |
+| 1 | Luxury EBC Trek Itinerary Explained | ✅ | `/blogs/luxury-everest-base-camp-trek-itinerary` (2026-10-10) |
 | 2 | Best Time for a Luxury EBC Trek | ✅ | `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30) |
 | 3 | How Hard Is a Luxury EBC Trek? | ⬜ | |
 | 4 | Luxury vs Standard EBC Trek | ✅ | `/blogs/luxury-vs-standard-everest-base-camp-trek` (2026-09-27) |
@@ -68,7 +68,7 @@ Posts below that touch these places (#14, #20, #34) take a **comfort/logistics a
 | 16 | Showers, Heated Rooms, Wi-Fi & Charging | ⬜ | |
 | 17 | Sleeping Well at Altitude | ⬜ | |
 | 18 | Above Dingboche: What Comfort Looks Like Higher Up | ⬜ | Honesty post; lodges post touches it briefly |
-| 19 | Helicopter from Gorak Shep: What to Expect | ⬜ | Don't target "ebc trek with helicopter return" (that trip page owns it) |
+| 19 | Helicopter from Gorak Shep: What to Expect | ✅ | `/blogs/helicopter-gorak-shep-to-kathmandu` (2026-10-10) |
 | 20 | Lukla Flights Made Easy: Ramechhap, Delays & Heli Upgrade | ⬜ | Flight logistics only; the place is covered (see above) |
 | 21 | Shared vs Private Helicopter on the Everest Trek | ⬜ | |
 | 22 | Five-Star Kathmandu: Hotels & Your Leisure Day | ⬜ | |
@@ -130,7 +130,7 @@ Link only to posts that are live. Trips always as `href="trip:{slug}"`, never as
 |---|---|---|---|---|
 | 2 | Best Time for a Luxury Everest Base Camp Trek: Month by Month ✅ | best time for luxury everest base camp trek | Planning | `best-time-luxury-everest-base-camp-trek` |
 | 6 | Everest Base Camp in Comfort: A Gentle Guide for First-Timers ✅ | everest base camp in comfort | Informational / Commercial | `everest-base-camp-in-comfort` |
-| 1 | The Luxury EBC Trek Itinerary: Why 12 Days Works | luxury everest base camp trek itinerary | Planning | `luxury-everest-base-camp-trek-itinerary` |
+| 1 | The Luxury EBC Trek Itinerary: Why 12 Days Works ✅ | luxury everest base camp trek itinerary | Planning | `luxury-everest-base-camp-trek-itinerary` |
 | 3 | How Hard Is a Luxury Everest Base Camp Trek? | luxury everest base camp trek difficulty | Informational | `luxury-everest-base-camp-trek-difficulty` |
 | 5 | Is a Luxury Everest Base Camp Trek Worth It? | is luxury everest trek worth it | Commercial Investigation | `is-luxury-everest-trek-worth-it` |
 | 4 | Luxury vs Standard Everest Base Camp Trek ✅ | luxury vs standard everest base camp trek | Comparison | `luxury-vs-standard-everest-base-camp-trek` |
@@ -210,7 +210,7 @@ Cross-links: `Lodges ↔ Above Dingboche` · `Food → Sleeping` · `Showers & W
 
 | # | Blog Title | Primary Keyword | Intent | Slug |
 |---|---|---|---|---|
-| 19 | Flying Home from Gorak Shep: The Helicopter Day Explained | helicopter from gorak shep to kathmandu | Informational | `helicopter-gorak-shep-to-kathmandu` |
+| 19 | Flying Home from Gorak Shep: The Helicopter Day Explained ✅ | helicopter from gorak shep to kathmandu | Informational | `helicopter-gorak-shep-to-kathmandu` |
 | 20 | Lukla Flights Made Easy: Ramechhap, Delays and the Heli Upgrade | lukla flight delays | Problem Solving | `lukla-flights-made-easy` |
 | 21 | Shared or Private Helicopter on the Everest Trek? | private helicopter everest base camp | Commercial | `shared-vs-private-helicopter-everest` |
 | 22 | Five-Star Kathmandu: Hotels and Your Leisure Day | luxury hotels kathmandu | Informational / Commercial | `five-star-kathmandu-everest-trek` |
@@ -286,13 +286,11 @@ Luxury Trekking Nepal (#33)
 Ordered by commercial value and season, not by number. **Always take the first ⬜ item.**
 
 **Next up:**
-1. Itinerary Explained (#1)
-2. Helicopter from Gorak Shep (#19)
-3. How Hard Is It? (#3)
+1. How Hard Is It? (#3)
 
 **Then:** the rest of each month's table in order, keeping #26 (Training) and #27 (Over 60) for early February, when spring trekkers start preparing.
 
-**Just published:** Private or Small Group (#9), `/blogs/private-everest-base-camp-trek` (2026-10-06). Before that: Everest Base Camp in Comfort (#6), `/blogs/everest-base-camp-in-comfort` (2026-09-30). Before that: What's Included (#8), `/blogs/luxury-everest-trek-whats-included` (2026-09-30). Before that: Best Time (#2), `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30). Before that: Luxury vs Standard (#4), Cost (#7), Best Luxury Lodges (#13), all 2026-09-27.
+**Just published:** Helicopter from Gorak Shep (#19), `/blogs/helicopter-gorak-shep-to-kathmandu` (2026-10-10). Before that: Itinerary Explained (#1), `/blogs/luxury-everest-base-camp-trek-itinerary` (2026-10-10). Before that: Private or Small Group (#9), `/blogs/private-everest-base-camp-trek` (2026-10-06). Before that: Everest Base Camp in Comfort (#6), `/blogs/everest-base-camp-in-comfort` (2026-09-30). Before that: What's Included (#8), `/blogs/luxury-everest-trek-whats-included` (2026-09-30). Before that: Best Time (#2), `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30). Before that: Luxury vs Standard (#4), Cost (#7), Best Luxury Lodges (#13), all 2026-09-27.
 
 ---
 
