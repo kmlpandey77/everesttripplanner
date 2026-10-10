@@ -22,19 +22,15 @@ class UpdateTripStats extends Command
                 foreach ($trips as $trip) {
                     $now = now();
 
-                    if (!$trip->last_booked_at) {
+                    $lastBookedAt = $trip->last_booked_at?->copy()->addHours(random_int(0, 23));
+
+                    if (! $lastBookedAt || $lastBookedAt->greaterThan($now)) {
                         $lastBookedAt = $now->copy()
                             ->subDays(random_int(1, 10))
                             ->addHours(random_int(0, 23));
-                    } else {
-                        $lastBookedAt = $trip->last_booked_at
-                            ->copy()
-                            ->addHours(random_int(0, 23));
                     }
 
-                    if ($lastBookedAt->greaterThan($now)) {
-                        $lastBookedAt = $now;
-                    }
+                    $this->info($lastBookedAt);
 
                     $trip->update([
                         'last_booked_at' => $lastBookedAt,
