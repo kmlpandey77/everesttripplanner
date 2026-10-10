@@ -16,14 +16,31 @@ class UpdateTripStats extends Command
      */
     public function handle(): void
     {
-        Trip::query()->select('id')->chunkById(200, function ($trips): void {
-            foreach ($trips as $trip) {
-                $trip->update([
-                    //                    'currently_viewing' => random_int(20, 80),
-                    'last_booked_at' => now()->subDays(random_int(1, 10)),
-                ]);
-            }
-        });
+        Trip::query()
+            ->select(['id', 'last_booked_at'])
+            ->chunkById(200, function ($trips): void {
+                foreach ($trips as $trip) {
+                    $now = now();
+
+                    if (!$trip->last_booked_at) {
+                        $lastBookedAt = $now->copy()
+                            ->subDays(random_int(1, 10))
+                            ->addHours(random_int(0, 23));
+                    } else {
+                        $lastBookedAt = $trip->last_booked_at
+                            ->copy()
+                            ->addHours(random_int(0, 23));
+                    }
+
+                    if ($lastBookedAt->greaterThan($now)) {
+                        $lastBookedAt = $now;
+                    }
+
+                    $trip->update([
+                        'last_booked_at' => $lastBookedAt,
+                    ]);
+                }
+            });
 
         $this->info('Trip stats updated.');
     }
