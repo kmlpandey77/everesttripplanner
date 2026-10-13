@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Trips\Pages;
 
 use App\Exceptions\InvalidRouteException;
+use App\Filament\Actions\ShareActions;
 use App\Filament\Resources\Trips\TripResource;
 use App\Services\RouteGenerator;
 use Filament\Actions\DeleteAction;
@@ -16,6 +17,7 @@ class EditTrip extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            ShareActions::make(),
             DeleteAction::make(),
         ];
     }

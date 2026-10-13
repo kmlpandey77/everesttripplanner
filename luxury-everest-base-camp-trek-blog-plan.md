@@ -56,7 +56,7 @@ Posts below that touch these places (#14, #20, #34) take a **comfort/logistics a
 | 4 | Luxury vs Standard EBC Trek | ✅ | `/blogs/luxury-vs-standard-everest-base-camp-trek` (2026-09-27) |
 | 5 | Is a Luxury EBC Trek Worth It? | ⬜ | The cost post has a short "Is it worth it?" section; this post goes deeper on experience, not money. Cross-link |
 | 6 | Everest Base Camp in Comfort: First-Timer's Guide | ✅ | `/blogs/everest-base-camp-in-comfort` (2026-09-30). Pillar: link new posts back to it |
-| 7 | Luxury EBC Trek Cost | ✅ | `/blogs/luxury-everest-base-camp-trek-cost` (2026-09-27) |
+| 7 | Luxury EBC Trek Cost | ✅ | `/blogs/luxury-everest-base-camp-trek-cost` (2026-09-27, reworked 2026-10-13: sample total budget, trek-style price table, links to newer posts) |
 | 8 | What's Included in a Luxury EBC Trek | ✅ | `/blogs/luxury-everest-trek-whats-included` (2026-09-30) |
 | 9 | Private vs Small-Group Luxury EBC Trek | ✅ | `/blogs/private-everest-base-camp-trek` (2026-10-06) |
 | 10 | How to Choose a Luxury Everest Trek Operator | ⬜ | |

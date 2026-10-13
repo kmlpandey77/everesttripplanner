@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Blogs\Pages;
 
 use App\Exceptions\InvalidRouteException;
+use App\Filament\Actions\ShareActions;
 use App\Filament\Resources\Blogs\BlogResource;
 use App\Models\Page;
 use App\Services\RouteGenerator;
@@ -17,6 +18,7 @@ class EditBlog extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            ShareActions::make(),
             DeleteAction::make(),
         ];
     }
