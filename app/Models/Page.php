@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Contracts\HasSeo;
 use App\Contracts\Routable;
 use App\Enums\PageStatus;
+use Awcodes\Curator\Models\Media;
 use Database\Factories\PageFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -80,9 +81,13 @@ class Page extends Model implements HasSeo, Routable
 
     public function defaultSchemaData(): array
     {
-        return [
+        $firstMediaId = collect($this->content ?? [])->pluck('data.media_id')->filter()->first();
+
+        return array_filter([
             'name' => $this->title,
-        ];
+            'description' => $this->defaultMetaDescription(),
+            'image' => $firstMediaId ? Media::find($firstMediaId)?->url : null,
+        ], fn (mixed $value): bool => filled($value));
     }
 
     public function additionalSchemaGraph(): array

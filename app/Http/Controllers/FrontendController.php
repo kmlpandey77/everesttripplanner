@@ -135,11 +135,13 @@ class FrontendController extends Controller
                 'twitter_title' => $title,
                 'twitter_description' => $trip->defaultMetaDescription(),
                 'twitter_image' => $image,
-                'schema_ld' => json_encode([
-                    '@context' => 'https://schema.org',
+                'schema_ld' => $this->seo->graph([[
                     '@type' => 'WebPage',
                     'name' => $title,
-                ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
+                    'url' => $request->url(),
+                    'description' => $trip->defaultMetaDescription(),
+                    'about' => ['@type' => 'TouristTrip', 'name' => $trip->title, 'url' => url($trip->route->full_path)],
+                ]]),
             ],
         ]);
     }

@@ -6,6 +6,7 @@ use App\Contracts\HasSeo;
 use App\Contracts\Routable;
 use App\Enums\PageStatus;
 use App\Enums\TripDifficulty;
+use App\Services\SeoService;
 use Awcodes\Curator\Models\Media;
 use Database\Factories\TripFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -208,7 +209,8 @@ class Trip extends Model implements HasSeo, Routable
 
     public function defaultSchemaType(): string
     {
-        return 'Product';
+        // TouristTrip, not Product: Google flags a Product with no offers/rating as invalid, and trips have no price yet
+        return 'TouristTrip';
     }
 
     public function defaultSchemaData(): array
@@ -217,6 +219,7 @@ class Trip extends Model implements HasSeo, Routable
             'name' => $this->title,
             'description' => $this->defaultMetaDescription(),
             'image' => $this->galleryMedia()->map(fn (Media $media): string => $media->url)->all(),
+            'provider' => ['@id' => SeoService::organizationId()],
             'offers' => $this->price ? [
                 '@type' => 'Offer',
                 'price' => (string) $this->price,

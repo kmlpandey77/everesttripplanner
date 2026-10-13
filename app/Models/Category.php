@@ -65,9 +65,10 @@ class Category extends Model implements HasSeo, Routable
 
     public function defaultSchemaData(): array
     {
-        return [
+        return array_filter([
             'name' => $this->name,
-        ];
+            'description' => $this->defaultMetaDescription(),
+        ], fn (mixed $value): bool => filled($value));
     }
 
     public function additionalSchemaGraph(): array

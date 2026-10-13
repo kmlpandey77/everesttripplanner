@@ -5,13 +5,15 @@
 <meta name="robots" content="{{ $seo['robots'] }}">
 <link rel="canonical" href="{{ $seo['canonical'] }}">
 
+<meta property="og:type" content="{{ $seo['og_type'] ?? 'website' }}">
+<meta property="og:site_name" content="{{ config('app.name') }}">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="{{ $seo['og_title'] }}">
 @if ($seo['og_description'])
     <meta property="og:description" content="{{ $seo['og_description'] }}">
 @endif
-@if ($seo['og_image'])
-    <meta property="og:image" content="{{ $seo['og_image'] }}">
-@endif
+<meta property="og:image" content="{{ $seo['og_image'] ?: asset('images/logo.webp') }}">
+<meta property="og:image:alt" content="{{ $seo['og_title'] }}">
 <meta property="og:url" content="{{ $seo['canonical'] }}">
 
 @if ($seo['twitter_card'])

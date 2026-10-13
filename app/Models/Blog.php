@@ -5,8 +5,10 @@ namespace App\Models;
 use App\Contracts\HasSeo;
 use App\Contracts\Routable;
 use App\Enums\PageStatus;
+use App\Services\SeoService;
 use Awcodes\Curator\Models\Media;
 use Database\Factories\BlogFactory;
+use DOMDocument;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -83,15 +85,37 @@ class Blog extends Model implements HasSeo, Routable
             'description' => $this->defaultMetaDescription(),
             'image' => $this->image?->url,
             'datePublished' => $this->published_at?->toIso8601String(),
-            'author' => [
-                '@type' => 'Organization',
-                'name' => config('app.name'),
-            ],
+            'dateModified' => $this->updated_at?->toIso8601String(),
+            'author' => ['@id' => SeoService::organizationId()],
+            'publisher' => ['@id' => SeoService::organizationId()],
         ], fn (mixed $value): bool => filled($value));
     }
 
+    /**
+     * FAQPage built from the post's "Frequently asked questions" section (each <h3> question and the <p> after it).
+     */
     public function additionalSchemaGraph(): array
     {
-        return [];
+        $dom = new DOMDocument;
+        @$dom->loadHTML('<?xml encoding="utf-8"?><body>'.$this->content.'</body>');
+
+        $questions = [];
+        $inFaq = false;
+        $question = null;
+
+        foreach ($dom->getElementsByTagName('body')->item(0)?->childNodes ?? [] as $node) {
+            $text = trim($node->textContent);
+
+            if ($node->nodeName === 'h2') {
+                $inFaq = str_contains(strtolower($text), 'frequently asked');
+            } elseif ($inFaq && $node->nodeName === 'h3') {
+                $question = $text;
+            } elseif ($inFaq && $node->nodeName === 'p' && $question !== null && $text !== '') {
+                $questions[] = ['@type' => 'Question', 'name' => $question, 'acceptedAnswer' => ['@type' => 'Answer', 'text' => $text]];
+                $question = null;
+            }
+        }
+
+        return $questions === [] ? [] : [['@type' => 'FAQPage', 'mainEntity' => $questions]];
     }
 }
