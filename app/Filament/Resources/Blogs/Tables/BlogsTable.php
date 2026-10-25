@@ -22,11 +22,10 @@ class BlogsTable
                     ->label('')
                     ->square(),
                 TextColumn::make('title')
+                    ->limit(50)
+                    ->description(fn ($record) => "/blogs/" .  str($record->slug)->limit(50))
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('slug')
-                    ->prefix('/blogs/')
-                    ->searchable(),
                 TextColumn::make('status')
                     ->badge()
                     ->sortable(),
