@@ -17,7 +17,7 @@
 <header class="border-b border-slate-200 bg-linear-to-b from-slate-200 to-white" x-data="{ mobileOpen: false }" @keydown.escape.window="mobileOpen = false">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-5">
         <a href="{{ url('/') }}" wire:navigate class="shrink-0" @click="mobileOpen = false">
-            <img src="{{ asset('images/logo.webp') }}" alt="{{ config('app.name') }}" class="h-10 w-auto">
+            <img src="{{ asset('images/logo.webp') }}" alt="{{ config('app.name') }}" class="h-10 w-auto" width="134" height="58">
         </a>
 
         @if ($mainMenu)
@@ -163,7 +163,7 @@
         <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             <div>
                 <a href="{{ url('/') }}" wire:navigate class="inline-block">
-                    <img src="{{ asset('images/logo.webp') }}" alt="{{ config('app.name') }}" class="h-10 w-auto">
+                    <img src="{{ asset('images/logo.webp') }}" alt="{{ config('app.name') }}" class="h-10 w-auto" width="134" height="58">
                 </a>
                 <p class="mt-4 max-w-xs text-sm text-slate-600">
                     Local, Nepal-based trekking experts planning guided Everest region treks — from the classic Base

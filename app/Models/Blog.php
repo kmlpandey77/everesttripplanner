@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Contracts\HasSeo;
 use App\Contracts\Routable;
 use App\Enums\PageStatus;
+use App\Services\MediaOptimizer;
 use App\Services\SeoService;
 use Awcodes\Curator\Models\Media;
 use Database\Factories\BlogFactory;
@@ -29,6 +30,25 @@ class Blog extends Model implements HasSeo, Routable
         'status',
         'published_at',
     ];
+
+    protected static function booted(): void
+    {
+        static::saved(function (self $model): void {
+            if ($model->wasRecentlyCreated || $model->wasChanged(['image_id', 'slug'])) {
+                app(MediaOptimizer::class)->optimize($model->mediaIds(), (string) $model->slug);
+            }
+        });
+    }
+
+    /**
+     * Curator media ids used by this blog post, in display order.
+     *
+     * @return array<int, int|string|null>
+     */
+    public function mediaIds(): array
+    {
+        return [$this->image_id];
+    }
 
     protected function casts(): array
     {

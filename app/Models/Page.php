@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Contracts\HasSeo;
 use App\Contracts\Routable;
 use App\Enums\PageStatus;
+use App\Services\MediaOptimizer;
 use Awcodes\Curator\Models\Media;
 use Database\Factories\PageFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Arr;
 
 class Page extends Model implements HasSeo, Routable
 {
@@ -27,6 +29,28 @@ class Page extends Model implements HasSeo, Routable
         'published_at',
         'parent_id',
     ];
+
+    protected static function booted(): void
+    {
+        static::saved(function (self $model): void {
+            if ($model->wasRecentlyCreated || $model->wasChanged(['content', 'slug'])) {
+                app(MediaOptimizer::class)->optimize($model->mediaIds(), (string) $model->slug);
+            }
+        });
+    }
+
+    /**
+     * Curator media ids used by this page, in display order.
+     *
+     * @return array<int, int|string|null>
+     */
+    public function mediaIds(): array
+    {
+        return collect(Arr::dot($this->content ?? []))
+            ->filter(fn (mixed $value, string $key): bool => (bool) preg_match('/(media|avatar)_id$/', $key))
+            ->values()
+            ->all();
+    }
 
     protected function casts(): array
     {

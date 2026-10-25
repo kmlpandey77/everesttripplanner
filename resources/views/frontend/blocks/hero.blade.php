@@ -1,11 +1,12 @@
 @php $media = \Awcodes\Curator\Models\Media::find($data['media_id'] ?? null); @endphp
 <section class="relative overflow-hidden bg-slate-900 text-white">
     @if ($media)
-        <img
-            src="{{ $media->url }}"
-            alt="{{ $media->alt ?: ($data['heading'] ?? '') }}"
+        <x-media-img
+            :media="$media"
+            :alt="$media->alt ?: ($data['heading'] ?? '')"
             class="absolute inset-0 h-full w-full object-cover"
-        >
+            fetchpriority="high"
+        />
         <div class="absolute inset-0 bg-black/45"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
     @endif

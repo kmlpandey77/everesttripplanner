@@ -1,9 +1,15 @@
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 
-function initTripGallerySwipers() {
-    document.querySelectorAll('.trip-gallery').forEach((wrapper) => {
+async function initTripGallerySwipers() {
+    const galleries = document.querySelectorAll('.trip-gallery');
+
+    if (galleries.length === 0) {
+        return;
+    }
+
+    const { Swiper, Navigation, Pagination } = await import('./swiper.js');
+
+    galleries.forEach((wrapper) => {
         const el = wrapper.querySelector('.trip-gallery-swiper');
 
         if (!el || el.swiper) {

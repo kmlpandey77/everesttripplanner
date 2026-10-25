@@ -6,6 +6,7 @@ use App\Contracts\HasSeo;
 use App\Contracts\Routable;
 use App\Enums\PageStatus;
 use App\Enums\TripDifficulty;
+use App\Services\MediaOptimizer;
 use App\Services\SeoService;
 use Awcodes\Curator\Models\Media;
 use Database\Factories\TripFactory;
@@ -54,6 +55,25 @@ class Trip extends Model implements HasSeo, Routable
         'last_booked_at',
         'published_at',
     ];
+
+    protected static function booted(): void
+    {
+        static::saved(function (self $model): void {
+            if ($model->wasRecentlyCreated || $model->wasChanged(['gallery', 'slug'])) {
+                app(MediaOptimizer::class)->optimize($model->mediaIds(), (string) $model->slug);
+            }
+        });
+    }
+
+    /**
+     * Curator media ids used by this trip, in display order.
+     *
+     * @return array<int, int|string|null>
+     */
+    public function mediaIds(): array
+    {
+        return $this->gallery ?? [];
+    }
 
     protected function casts(): array
     {
@@ -161,9 +181,11 @@ class Trip extends Model implements HasSeo, Routable
      */
     public function galleryMedia(): Collection
     {
-        $ids = $this->gallery ?? [];
+        return once(function (): Collection {
+            $ids = $this->gallery ?? [];
 
-        return Media::query()->findMany($ids)->sortBy(fn (Media $media): int => array_search($media->id, $ids))->values();
+            return Media::query()->findMany($ids)->sortBy(fn (Media $media): int => array_search($media->id, $ids))->values();
+        });
     }
 
     /**

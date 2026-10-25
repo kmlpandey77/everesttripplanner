@@ -12,7 +12,7 @@
             <a href="{{ $post->route ? url($post->route->full_path) : '#' }}" wire:navigate
                class="group overflow-hidden rounded-lg border border-slate-100 bg-white transition hover:shadow-md">
                 @if ($post->image)
-                    <img src="{{ $post->image->url }}" alt="{{ $post->image->alt ?: $post->title }}" class="aspect-video w-full object-cover">
+                    <x-media-img :media="$post->image" :alt="$post->image->alt ?: $post->title" sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" class="aspect-video w-full object-cover" />
                 @endif
                 <div class="p-5">
                     @if ($post->published_at)

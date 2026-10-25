@@ -21,7 +21,7 @@
     @if ($media)
         <div class="flex {{ $direction }} gap-6">
             <div class="sm:w-2/5 sm:shrink-0">
-                <img src="{{ $media->url }}" alt="{{ $data['alt'] ?? $media->alt }}" class="{{ $fit }} rounded-lg border border-slate-100 shadow-sm">
+                <x-media-img :media="$media" :alt="$data['alt'] ?? $media->alt" sizes="(min-width: 640px) 440px, 100vw" loading="lazy" decoding="async" class="{{ $fit }} rounded-lg border border-slate-100 shadow-sm" />
             </div>
             <div class="prose prose-slate max-w-none flex-1 {{ $alignClass }} prose-a:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:text-secondary hover:prose-a:underline">
                 {!! $data['content'] ?? '' !!}

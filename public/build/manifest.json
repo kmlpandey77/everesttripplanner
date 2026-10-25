@@ -28,7 +28,7 @@
     "src": "_instrument-sans-600-normal-B9e8oLYv.woff"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Bsy0AFsg.css",
+    "file": "assets/app-CPpU28k5.css",
     "name": "app",
     "names": [
       "app.css"
@@ -37,7 +37,7 @@
     "isEntry": true
   },
   "resources/css/filament/admin/theme.css": {
-    "file": "assets/theme-WUO4-KI1.css",
+    "file": "assets/theme-C-Gb2r-y.css",
     "name": "theme",
     "names": [
       "theme.css"
@@ -46,12 +46,21 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-0pn7_7QO.js",
+    "file": "assets/app-eyz0uLJ8.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
+    "dynamicImports": [
+      "resources/js/swiper.js"
+    ],
     "css": [
       "assets/app-Bdbi0viN.css"
     ]
+  },
+  "resources/js/swiper.js": {
+    "file": "assets/swiper-DvPlaYNU.js",
+    "name": "swiper",
+    "src": "resources/js/swiper.js",
+    "isDynamicEntry": true
   }
 }

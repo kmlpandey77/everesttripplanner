@@ -7,7 +7,7 @@
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             @foreach ($items as $item)
                 @continue(blank($item['quote'] ?? null) || blank($item['name'] ?? null))
-                @php $avatar = \Awcodes\Curator\Models\Media::find($item['avatar_id'] ?? null); @endphp
+                @php $avatar = filled($item['avatar_id'] ?? null) ? \Awcodes\Curator\Models\Media::find($item['avatar_id']) : null; @endphp
                 <figure class="rounded-lg border border-slate-100 bg-white p-6">
                     <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
                         <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
@@ -28,7 +28,7 @@
 
                     <figcaption class="mt-4 flex items-center gap-3 border-t border-slate-100 pt-4">
                         @if ($avatar)
-                            <img src="{{ $avatar->url }}" alt="" class="h-10 w-10 shrink-0 rounded-full object-cover">
+                            <x-media-img :media="$avatar" alt="" sizes="40px" loading="lazy" decoding="async" class="h-10 w-10 shrink-0 rounded-full object-cover" />
                         @else
                             <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 font-semibold text-slate-500">
                                 {{ Str::of($item['name'])->substr(0, 1)->upper() }}

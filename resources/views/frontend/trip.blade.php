@@ -79,8 +79,10 @@
                         <div class="swiper-wrapper">
                             @foreach ($galleryImages as $image)
                                 <div class="swiper-slide">
-                                    <img src="{{ $image->url }}" alt="{{ $image->alt ?: $trip->title }}"
-                                         class="h-72 w-full object-cover sm:h-[28rem]">
+                                    <x-media-img :media="$image" :alt="$image->alt ?: $trip->title"
+                                         :fetchpriority="$loop->first ? 'high' : null" :loading="$loop->first ? null : 'lazy'" decoding="async"
+                                         sizes="(min-width: 1024px) 720px, 100vw"
+                                         class="h-72 w-full object-cover sm:h-[28rem]" />
                                 </div>
                             @endforeach
                         </div>
@@ -369,13 +371,13 @@
                         <h2 class="text-2xl font-bold text-slate-900">Customer Reviews</h2>
                         <div class="mt-6 grid gap-2">
                             @foreach ($reviews as $review)
-                                @php $avatar = \Awcodes\Curator\Models\Media::find($review->avatar_id); @endphp
+                                @php $avatar = $review->avatar_id ? \Awcodes\Curator\Models\Media::find($review->avatar_id) : null; @endphp
                                 <figure class="rounded-lg border border-slate-100 bg-white p-6">
                                     <x-rating :rating="$review->rating" size="sm" />
                                     <blockquote class="mt-3 text-slate-600">{{ $review->quote }}</blockquote>
                                     <figcaption class="mt-4 flex items-center gap-3 border-t border-slate-100 pt-4">
                                         @if ($avatar)
-                                            <img src="{{ $avatar->url }}" alt="" class="h-10 w-10 shrink-0 rounded-full object-cover">
+                                            <x-media-img :media="$avatar" alt="" sizes="40px" loading="lazy" decoding="async" class="h-10 w-10 shrink-0 rounded-full object-cover" />
                                         @else
                                             <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 font-semibold text-slate-500">
                                                 {{ Str::of($review->reviewer_name)->substr(0, 1)->upper() }}

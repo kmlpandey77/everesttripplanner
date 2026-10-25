@@ -14,8 +14,9 @@
             {{ $attributes->class(['group block overflow-hidden rounded-lg border border-slate-100 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary']) }}>
         <div class="relative overflow-hidden">
             @if ($cover = $trip->galleryMedia()->first())
-                <img src="{{ $cover->url }}" alt="{{ $cover->alt ?: $trip->title }}"
-                     class="h-44 w-full object-cover transition duration-300 group-hover:scale-105">
+                <x-media-img :media="$cover" :alt="$cover->alt ?: $trip->title" loading="lazy" decoding="async"
+                     sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+                     class="h-44 w-full object-cover transition duration-300 group-hover:scale-105" />
             @else
                 <div class="h-44 w-full bg-slate-100"></div>
             @endif
