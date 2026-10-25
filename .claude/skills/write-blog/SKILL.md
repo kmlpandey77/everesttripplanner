@@ -38,8 +38,8 @@ The site has no prices yet (`price` is null). Don't state a price for our trip. 
 
 **Voice: simple, positive, soft.** Write like a calm, experienced guide talking to one person over tea. The reader can afford comfort but is probably a little nervous. They should finish the post feeling "I can do this", not "this sounds scary". The tone reference is https://everestbasecamptrails.com/blog/ebc-trek-difficulty. Match its feel, not its words.
 
-- **Simple:** use plain words and short paragraphs of 2–4 sentences. Mix short sentences with longer ones ("Altitude is the whole story."). Explain any term the first time you use it (acclimatization, moraine). Write "you" and "we" throughout.
-- **Positive:** open each section with what goes right, then the honest detail. Say "a hard walk, not a hard climb" rather than "gruelling and dangerous".
+- **Simple:** use plain words and short paragraphs of 2–4 sentences. Mix short sentences with longer ones. Explain any term the first time you use it (acclimatization, moraine). Write "you" and "we" throughout.
+- **Positive:** open each section with what goes right, then the honest detail. Say "a long walk on good trails, with no climbing involved" rather than "gruelling and dangerous".
 - **Soft with scary topics:** handle altitude, cold, flights and difficulty in three steps. Name the issue honestly, say it's normal and common, then give the practical fix. For example: "Walk slowly, drink plenty of water, and tell your guide early if you get a headache." Never frighten the reader, and never pretend a risk doesn't exist.
 - **Concrete over hype:** "heated rooms with attached bathrooms" beats "unforgettable luxury". Leave out exclamation marks and stacked superlatives.
 - **Headings:** mix question headings ("What's easier than people expect?") with plain statement headings ("The three hardest days"). Start with a "The short answer" section and end with a "The bottom line" section before the FAQ.
@@ -67,6 +67,14 @@ The site has no prices yet (`price` is null). Don't state a price for our trip. 
 - Meta title of 60 characters or fewer, starting with the keyword.
 - Meta description of 155 characters or fewer that includes the keyword and a benefit.
 - Excerpt of 1–2 sentences, used on the `/blogs` listing.
+
+**Humanize before shipping.** Once the draft is written, run the `humanizer` skill on the HTML in `content()` (file mode: change prose only, never tags, `href`s or `trip:` links). The ones that show up most in these posts:
+- "Not X but Y" framing: "a walk, not a climb", "comfort isn't only about a nicer bed". Say the point directly.
+- Staged openers ("Let's start with the good news.", "Here's the thing") and one-line aphorism closers ("Patience is the most useful skill…", "You can do this.").
+- Bold-label lists (`<li><strong>Label.</strong> …`). Write each item as a plain sentence.
+- Inflated endings ("one of the great journeys on earth"). Replace them with what the reader actually gets (base camp, the Kala Patthar sunrise).
+- Em/en dashes in prose.
+Re-check every number after rewriting, because rephrasing can quietly change facts (e.g. "8 walking days" becoming "a week and a half").
 
 ## 4. Ship it as a seeder
 
