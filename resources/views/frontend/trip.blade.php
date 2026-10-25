@@ -82,7 +82,7 @@
                                     <x-media-img :media="$image" :alt="$image->alt ?: $trip->title"
                                          :fetchpriority="$loop->first ? 'high' : null" :loading="$loop->first ? null : 'lazy'" decoding="async"
                                          sizes="(min-width: 1024px) 720px, 100vw"
-                                         class="h-72 w-full object-cover sm:h-[28rem]" />
+                                         class="h-96 w-full object-cover sm:h-[36rem]" />
                                 </div>
                             @endforeach
                         </div>

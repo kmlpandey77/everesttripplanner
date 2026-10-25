@@ -15,7 +15,7 @@
         @if ($blog->image)
             <x-media-img :media="$blog->image" :alt="$blog->image->alt ?: $blog->title" fetchpriority="high"
                  sizes="(min-width: 768px) 720px, 100vw"
-                 class="mt-8 aspect-video w-full rounded-lg border border-slate-100 object-cover shadow-sm" />
+                 class="mt-8 h-96 w-full sm:h-[36rem] rounded-lg border border-slate-100 object-cover shadow-sm" />
         @endif
 
         <div class="prose prose-slate mt-8 max-w-none prose-a:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:text-secondary hover:prose-a:underline">
