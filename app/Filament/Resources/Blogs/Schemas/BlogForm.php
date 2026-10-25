@@ -24,6 +24,7 @@ class BlogForm
             ->components([
                 Section::make('Post')
                     ->columns(2)
+                    ->columnSpanFull()
                     ->schema([
                         TextInput::make('title')
                             ->required()
