@@ -17,7 +17,7 @@
 
 ✅ = live · 🟡 = already covered elsewhere on the site (don't write, or scope carefully) · ⬜ = open
 
-**Scorecard:** 10 live, 26 open.
+**Scorecard:** 11 live (10 planned + 1 extra), 26 open.
 
 ### Search Console snapshot (last 3 months to 2026-09-30)
 
@@ -86,6 +86,7 @@ Posts below that touch these places (#14, #20, #34) take a **comfort/logistics a
 | 34 | Photographing Everest on the Luxury Route | ⬜ | Viewpoints: Hotel Everest View, Tengboche, Kala Patthar |
 | 35 | A Day on the Luxury EBC Trek, Hour by Hour | ⬜ | |
 | 36 | Responsible Luxury: How Your Trek Supports the Khumbu | ⬜ | Trust/authority post |
+| 37 | Kala Patthar Sunrise (extra, from 2026-11-03 GSC) | ✅ | `/blogs/kala-patthar-sunrise` (2026-11-03). Keyword "kala patthar sunrise"; trek-intent angle on the 169 Kala Patthar impressions |
 
 ---
 
@@ -290,7 +291,7 @@ Ordered by commercial value and season, not by number. **Always take the first �
 
 **Then:** the rest of each month's table in order, keeping #26 (Training) and #27 (Over 60) for early February, when spring trekkers start preparing.
 
-**Just published:** Helicopter from Gorak Shep (#19), `/blogs/helicopter-gorak-shep-to-kathmandu` (2026-10-10). Before that: Itinerary Explained (#1), `/blogs/luxury-everest-base-camp-trek-itinerary` (2026-10-10). Before that: Private or Small Group (#9), `/blogs/private-everest-base-camp-trek` (2026-10-06). Before that: Everest Base Camp in Comfort (#6), `/blogs/everest-base-camp-in-comfort` (2026-09-30). Before that: What's Included (#8), `/blogs/luxury-everest-trek-whats-included` (2026-09-30). Before that: Best Time (#2), `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30). Before that: Luxury vs Standard (#4), Cost (#7), Best Luxury Lodges (#13), all 2026-09-27.
+**Just published:** Kala Patthar Sunrise (#37, extra), `/blogs/kala-patthar-sunrise` (2026-11-03). Before that: Helicopter from Gorak Shep (#19), `/blogs/helicopter-gorak-shep-to-kathmandu` (2026-10-10). Before that: Itinerary Explained (#1), `/blogs/luxury-everest-base-camp-trek-itinerary` (2026-10-10). Before that: Private or Small Group (#9), `/blogs/private-everest-base-camp-trek` (2026-10-06). Before that: Everest Base Camp in Comfort (#6), `/blogs/everest-base-camp-in-comfort` (2026-09-30). Before that: What's Included (#8), `/blogs/luxury-everest-trek-whats-included` (2026-09-30). Before that: Best Time (#2), `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30). Before that: Luxury vs Standard (#4), Cost (#7), Best Luxury Lodges (#13), all 2026-09-27.
 
 ---
 

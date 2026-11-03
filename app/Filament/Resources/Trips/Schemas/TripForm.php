@@ -137,7 +137,7 @@ class TripForm
                             ->placeholder('Add a highlight'),
                     ]),
                 Section::make('Itinerary')
-                    ->description('Also powers the short outline shown on the trip page itself. If any days are added here, a separate "detailed itinerary" page is published for this trip.')
+                    ->description('Shown on the trip page, below Trip details, as a card for each day.')
                     ->columnSpanFull()
                     ->schema([
                         Repeater::make('detailed_itinerary')

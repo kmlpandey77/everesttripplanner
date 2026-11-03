@@ -115,8 +115,8 @@
             @foreach (array_filter([
                 'highlights' => $trip->highlights ? 'Highlights' : null,
                 'departures' => $upcomingDepartures->isNotEmpty() ? 'Departure Dates' : null,
-                'itinerary' => $trip->detailed_itinerary ? 'Itinerary' : null,
                 'trip-details' => $trip->overview ? 'Trip details' : null,
+                'itinerary' => $trip->detailed_itinerary ? 'Itinerary' : null,
                 'includes' => $trip->includes ? 'Includes' : null,
                 'excludes' => $trip->excludes ? 'Excludes' : null,
                 'practical-info' => ($trip->checklist || $trip->know_before_you_go || $trip->do_not_do) ? 'Practical Info' : null,
@@ -212,68 +212,6 @@
                     </section>
                 @endif
 
-                {{-- Itinerary --}}
-                @if ($trip->detailed_itinerary)
-                    <section id="itinerary" class="mt-12 scroll-mt-20">
-                        <div class="flex flex-wrap items-center justify-between gap-2">
-                            <h2 class="text-2xl font-bold text-slate-900">Itinerary</h2>
-                            @if ($trip->itineraryRoute)
-                                <a href="{{ url($trip->itineraryRoute->full_path) }}" wire:navigate
-                                   class="text-sm font-semibold text-primary hover:opacity-80">
-                                    View detailed itinerary &rarr;
-                                </a>
-                            @endif
-                        </div>
-                        <div class="mt-6 overflow-hidden rounded-lg border border-slate-100">
-                            <div class="overflow-x-auto">
-                                <table class="w-full min-w-[560px] text-left text-sm">
-                                    <thead>
-                                    <tr class="border-b border-slate-100 bg-slate-50">
-                                        <th scope="col"
-                                            class="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                                            Day
-                                        </th>
-                                        <th scope="col"
-                                            class="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                                            Activity
-                                        </th>
-                                        <th scope="col"
-                                            class="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                                            Walking Hr
-                                        </th>
-                                        <th scope="col"
-                                            class="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                                            Max Altitude
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-slate-200">
-                                    @foreach ($trip->detailed_itinerary as $day)
-                                        <tr class="odd:bg-slate-100">
-                                            <td class="whitespace-nowrap px-4 py-2 align-top font-semibold text-slate-900">{{ $day['day'] ?? '' }}</td>
-                                            <td class="px-4 py-2 align-top text-slate-700">{{ $day['title'] ?? '' }}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 align-top text-slate-600">{{ $day['duration'] ?? '—' }}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 align-top text-slate-600">{{ $day['altitude'] ?? '—' }}</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        @unless ($trip->itineraryRoute)
-                            <div class="mt-6 space-y-3">
-                                @foreach ($trip->detailed_itinerary as $day)
-                                    @if ($day['description'] ?? null)
-                                        <p class="text-slate-600"><span class="font-semibold text-slate-900">{{ $day['day'] ?? '' }}:</span> {{ $day['description'] }}
-                                        </p>
-                                    @endif
-                                @endforeach
-                            </div>
-                        @endunless
-                    </section>
-                @endif
-
                 {{-- Trip details (overview) --}}
                 @if ($trip->overview)
                     <section id="trip-details" class="mt-12 scroll-mt-20">
@@ -281,6 +219,74 @@
                         <div class="prose prose-slate mt-4 max-w-none prose-a:text-primary prose-a:font-semibold prose-a:no-underline hover:prose-a:text-secondary hover:prose-a:underline">
                             {!! $trip->overview !!}
                         </div>
+                    </section>
+                @endif
+
+                {{-- Itinerary --}}
+                @if ($trip->detailed_itinerary)
+                    @php
+                        $metres = fn (?string $altitude): int => preg_match('/(\d{1,2},?\d{3})\s?m/', (string) $altitude, $m) ? (int) str_replace(',', '', $m[1]) : 0;
+                        $peakMetres = max(array_map(fn (array $day): int => $metres($day['altitude'] ?? null), $trip->detailed_itinerary));
+                    @endphp
+                    <section id="itinerary" class="mt-12 scroll-mt-20">
+                        <h2 class="text-2xl font-bold text-slate-900">Itinerary</h2>
+                        <p class="mt-1 text-sm text-slate-500">
+                            {{ count($trip->detailed_itinerary) }} days
+                            @if ($peakMetres)
+                                &middot; highest point <span class="tabular-nums">{{ number_format($peakMetres) }}m</span>
+                            @endif
+                        </p>
+
+                        <ol class="mt-8">
+                            @foreach ($trip->detailed_itinerary as $day)
+                                @php
+                                    $dayNumber = preg_match('/^\s*day\s+(.+)$/i', $day['day'] ?? '', $m) ? trim($m[1]) : ($day['day'] ?? '');
+                                    $isPeak = $peakMetres && $metres($day['altitude'] ?? null) === $peakMetres;
+                                    // ponytail: editors type "-" for "not applicable"; treat it as empty
+                                    $dayFacts = array_filter([
+                                        'Altitude' => $day['altitude'] ?? null,
+                                        'Distance' => $day['distance'] ?? null,
+                                        'Walking' => $day['duration'] ?? null,
+                                        'Stay' => $day['accommodation'] ?? null,
+                                        'Meals' => $day['meals'] ?? null,
+                                    ], fn (?string $value): bool => filled($value) && ! in_array(trim($value), ['-', '–', '—'], true));
+                                @endphp
+                                <li class="group relative grid grid-cols-[2.75rem_1fr] gap-x-4 pb-10 last:pb-0 sm:grid-cols-[3.5rem_1fr] sm:gap-x-6">
+                                    <span aria-hidden="true" class="absolute bottom-0 left-[1.375rem] top-14 w-px bg-slate-200 group-last:hidden sm:left-7 sm:top-[4.25rem]"></span>
+
+                                    <div @class([
+                                        'relative flex size-11 flex-col items-center justify-center rounded-full border sm:size-14',
+                                        'border-primary bg-primary text-white' => $isPeak,
+                                        'border-slate-200 bg-white text-primary' => ! $isPeak,
+                                    ])>
+                                        <span @class(['text-[10px] font-semibold uppercase leading-none tracking-wide', 'text-white/75' => $isPeak, 'text-slate-400' => ! $isPeak])>Day</span>
+                                        <span class="mt-0.5 text-base font-bold leading-none tabular-nums sm:text-lg">{{ $dayNumber }}</span>
+                                    </div>
+
+                                    <div class="min-w-0 pt-1.5 sm:pt-3">
+                                        <h3 class="text-lg font-semibold leading-snug text-balance text-slate-900">{{ $day['title'] ?? '' }}</h3>
+                                        @if ($isPeak)
+                                            <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-primary">Highest point of the trip</p>
+                                        @endif
+
+                                        @if ($dayFacts)
+                                            <dl class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                                                @foreach ($dayFacts as $dayLabel => $dayValue)
+                                                    <div>
+                                                        <dt class="text-xs font-semibold uppercase tracking-wide text-slate-400">{{ $dayLabel }}</dt>
+                                                        <dd class="mt-0.5 font-medium tabular-nums text-slate-700">{{ $dayValue }}</dd>
+                                                    </div>
+                                                @endforeach
+                                            </dl>
+                                        @endif
+
+                                        @if ($day['description'] ?? null)
+                                            <p class="mt-3 max-w-prose leading-relaxed text-slate-600">{{ $day['description'] }}</p>
+                                        @endif
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ol>
                     </section>
                 @endif
 

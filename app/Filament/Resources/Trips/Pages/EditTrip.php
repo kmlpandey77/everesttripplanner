@@ -29,12 +29,7 @@ class EditTrip extends EditRecord
             : null;
 
         try {
-            $generator = app(RouteGenerator::class);
-            $mainRoute = $generator->sync($this->record, $this->record->slug, 'trip', $parent);
-
-            if (filled($this->record->detailed_itinerary)) {
-                $generator->sync($this->record, 'itinerary', 'trip-itinerary', $mainRoute, 'itineraryRoute');
-            }
+            app(RouteGenerator::class)->sync($this->record, $this->record->slug, 'trip', $parent);
         } catch (InvalidRouteException $exception) {
             Notification::make()->danger()->title($exception->getMessage())->send();
         }

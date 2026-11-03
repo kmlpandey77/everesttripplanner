@@ -38,7 +38,7 @@ class FrontendController extends Controller
             'page' => $this->renderPage($route, $request),
             'category' => $this->renderCategory($route, $request),
             'trip' => $this->renderTrip($route, $request),
-            'trip-itinerary' => $this->renderTripItinerary($route, $request),
+            'trip-itinerary' => $this->redirectToTripItinerary($route),
             'blog' => $this->renderBlog($route, $request),
             default => abort(404),
         };
@@ -112,37 +112,15 @@ class FrontendController extends Controller
         ]);
     }
 
-    private function renderTripItinerary(RouteModel $route, Request $request): View
+    /**
+     * The detailed itinerary now lives on the trip page; old `{trip}/itinerary` URLs 301 there.
+     */
+    private function redirectToTripItinerary(RouteModel $route): RedirectResponse
     {
         $trip = $route->routable;
 
-        abort_unless($trip instanceof Trip && $trip->isPublished() && filled($trip->detailed_itinerary), 404);
+        abort_unless($trip instanceof Trip && $trip->isPublished() && $trip->route, 404);
 
-        $title = $trip->title.' — Detailed Itinerary';
-        $image = $trip->galleryMedia()->first()?->url;
-
-        return view('frontend.trip-itinerary', [
-            'trip' => $trip,
-            'seo' => [
-                'title' => $title,
-                'description' => $trip->defaultMetaDescription(),
-                'canonical' => $request->url(),
-                'robots' => 'index,follow',
-                'og_title' => $title,
-                'og_description' => $trip->defaultMetaDescription(),
-                'og_image' => $image,
-                'twitter_card' => $image ? 'summary_large_image' : null,
-                'twitter_title' => $title,
-                'twitter_description' => $trip->defaultMetaDescription(),
-                'twitter_image' => $image,
-                'schema_ld' => $this->seo->graph([[
-                    '@type' => 'WebPage',
-                    'name' => $title,
-                    'url' => $request->url(),
-                    'description' => $trip->defaultMetaDescription(),
-                    'about' => ['@type' => 'TouristTrip', 'name' => $trip->title, 'url' => url($trip->route->full_path)],
-                ]]),
-            ],
-        ]);
+        return redirect('/'.$trip->route->full_path.'#itinerary', 301);
     }
 }

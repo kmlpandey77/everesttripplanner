@@ -16,13 +16,9 @@ class SitemapController extends Controller
     {
         $sitemap = Sitemap::create();
 
-        Trip::with(['route', 'itineraryRoute'])->get()->filter->isPublished()->each(function (Trip $trip) use ($sitemap): void {
+        Trip::with('route')->get()->filter->isPublished()->each(function (Trip $trip) use ($sitemap): void {
             if ($trip->route) {
                 $sitemap->add(Url::create($trip->route->full_path)->setLastModificationDate($trip->updated_at));
-            }
-
-            if ($trip->itineraryRoute) {
-                $sitemap->add(Url::create($trip->itineraryRoute->full_path)->setLastModificationDate($trip->updated_at));
             }
         });
 

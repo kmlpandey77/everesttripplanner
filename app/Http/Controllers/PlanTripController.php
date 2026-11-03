@@ -26,7 +26,7 @@ class PlanTripController extends Controller
                 'title' => "{$title} — ".config('app.name'),
                 'description' => $description,
                 'canonical' => url('/start-planning'),
-                'robots' => 'index,follow',
+                'robots' => 'noindex,follow',
                 'og_title' => $title,
                 'og_description' => $description,
                 'og_image' => null,
