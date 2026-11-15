@@ -17,7 +17,7 @@
 
 ✅ = live · 🟡 = already covered elsewhere on the site (don't write, or scope carefully) · ⬜ = open
 
-**Scorecard:** 11 live (10 planned + 1 extra), 26 open.
+**Scorecard:** 12 live (11 planned + 1 extra), 25 open.
 
 ### Search Console snapshot (last 3 months to 2026-09-30)
 
@@ -54,7 +54,7 @@ Posts below that touch these places (#14, #20, #34) take a **comfort/logistics a
 | 2 | Best Time for a Luxury EBC Trek | ✅ | `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30) |
 | 3 | How Hard Is a Luxury EBC Trek? | ✅ | `/blogs/luxury-everest-base-camp-trek-difficulty` (2026-10-25) |
 | 4 | Luxury vs Standard EBC Trek | ✅ | `/blogs/luxury-vs-standard-everest-base-camp-trek` (2026-09-27) |
-| 5 | Is a Luxury EBC Trek Worth It? | ⬜ | The cost post has a short "Is it worth it?" section; this post goes deeper on experience, not money. Cross-link |
+| 5 | Is a Luxury EBC Trek Worth It? | ✅ | `/blogs/is-luxury-everest-trek-worth-it` (2026-11-15). Experience angle; links cost + luxury vs standard |
 | 6 | Everest Base Camp in Comfort: First-Timer's Guide | ✅ | `/blogs/everest-base-camp-in-comfort` (2026-09-30). Pillar: link new posts back to it |
 | 7 | Luxury EBC Trek Cost | ✅ | `/blogs/luxury-everest-base-camp-trek-cost` (2026-09-27, reworked 2026-10-13: sample total budget, trek-style price table, links to newer posts) |
 | 8 | What's Included in a Luxury EBC Trek | ✅ | `/blogs/luxury-everest-trek-whats-included` (2026-09-30) |
@@ -133,7 +133,7 @@ Link only to posts that are live. Trips always as `href="trip:{slug}"`, never as
 | 6 | Everest Base Camp in Comfort: A Gentle Guide for First-Timers ✅ | everest base camp in comfort | Informational / Commercial | `everest-base-camp-in-comfort` |
 | 1 | The Luxury EBC Trek Itinerary: Why 12 Days Works ✅ | luxury everest base camp trek itinerary | Planning | `luxury-everest-base-camp-trek-itinerary` |
 | 3 | How Hard Is a Luxury Everest Base Camp Trek? ✅ | luxury everest base camp trek difficulty | Informational | `luxury-everest-base-camp-trek-difficulty` |
-| 5 | Is a Luxury Everest Base Camp Trek Worth It? | is luxury everest trek worth it | Commercial Investigation | `is-luxury-everest-trek-worth-it` |
+| 5 | Is a Luxury Everest Base Camp Trek Worth It? ✅ | is luxury everest trek worth it | Commercial Investigation | `is-luxury-everest-trek-worth-it` |
 | 4 | Luxury vs Standard Everest Base Camp Trek ✅ | luxury vs standard everest base camp trek | Comparison | `luxury-vs-standard-everest-base-camp-trek` |
 
 ```text
@@ -287,11 +287,11 @@ Luxury Trekking Nepal (#33)
 Ordered by commercial value and season, not by number. **Always take the first ⬜ item.**
 
 **Next up:**
-1. How Hard Is It? (#3)
+1. Choosing an Operator (#10)
 
 **Then:** the rest of each month's table in order, keeping #26 (Training) and #27 (Over 60) for early February, when spring trekkers start preparing.
 
-**Just published:** Kala Patthar Sunrise (#37, extra), `/blogs/kala-patthar-sunrise` (2026-11-03). Before that: Helicopter from Gorak Shep (#19), `/blogs/helicopter-gorak-shep-to-kathmandu` (2026-10-10). Before that: Itinerary Explained (#1), `/blogs/luxury-everest-base-camp-trek-itinerary` (2026-10-10). Before that: Private or Small Group (#9), `/blogs/private-everest-base-camp-trek` (2026-10-06). Before that: Everest Base Camp in Comfort (#6), `/blogs/everest-base-camp-in-comfort` (2026-09-30). Before that: What's Included (#8), `/blogs/luxury-everest-trek-whats-included` (2026-09-30). Before that: Best Time (#2), `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30). Before that: Luxury vs Standard (#4), Cost (#7), Best Luxury Lodges (#13), all 2026-09-27.
+**Just published:** Is It Worth It? (#5), `/blogs/is-luxury-everest-trek-worth-it` (2026-11-15). Before that: Kala Patthar Sunrise (#37, extra), `/blogs/kala-patthar-sunrise` (2026-11-03). Before that: Helicopter from Gorak Shep (#19), `/blogs/helicopter-gorak-shep-to-kathmandu` (2026-10-10). Before that: Itinerary Explained (#1), `/blogs/luxury-everest-base-camp-trek-itinerary` (2026-10-10). Before that: Private or Small Group (#9), `/blogs/private-everest-base-camp-trek` (2026-10-06). Before that: Everest Base Camp in Comfort (#6), `/blogs/everest-base-camp-in-comfort` (2026-09-30). Before that: What's Included (#8), `/blogs/luxury-everest-trek-whats-included` (2026-09-30). Before that: Best Time (#2), `/blogs/best-time-luxury-everest-base-camp-trek` (2026-09-30). Before that: Luxury vs Standard (#4), Cost (#7), Best Luxury Lodges (#13), all 2026-09-27.
 
 ---
 
